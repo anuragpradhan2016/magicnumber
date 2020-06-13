@@ -8,6 +8,7 @@ public class MainMenu : MonoBehaviour
     public string SinglePlayerScene;
     public string MultiPlayerScene;
     public string HowToPlayScene;
+    public string EasyModeScene;
     // Start is called before the first frame update
     void Start()
     {
@@ -27,5 +28,11 @@ public class MainMenu : MonoBehaviour
     public void howToPlayScene()
     {
         SceneManager.LoadScene(HowToPlayScene);
+    }
+
+
+    public void easyModeScene()
+    {
+        SceneManager.LoadScene(EasyModeScene);
     }
 }

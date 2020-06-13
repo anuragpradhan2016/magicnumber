@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/HowToPlay.unity
     guid: 374807db74f3bd4428bb09af4e0b0aee
+  - enabled: 1
+    path: Assets/Scenes/EasyModeScene.unity
+    guid: a5279c77c39c21d4c897040f51cbe294
   m_configObjects: {}

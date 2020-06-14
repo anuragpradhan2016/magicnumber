@@ -21,14 +21,21 @@ public class GameManager : MonoBehaviour
     public GameObject answerFour;
     public GameObject answerFive;
 
-    public int[] testResults;
+    public GameObject scoreDisplay;
+    public int score;
+
+    public string[] testBank;
+    public string[] question;
+    public int indexInBank;
 
     public String answer;
 
     // Start is called before the first frame update
     void Start()
     {
-        testResults = new int[] { 30, 4, 8, 2 };
+        testBank = new string[] {"30,4,8,2", "48,3,2,8", "42,7,9,3", "12,4,2,6", "81,4,5,9", "39,4,9,3", "96,4,8,8", "10,2,3,2", "36,6,9,3", "77,7,4,7"};
+        indexInBank = 0;
+        question = testBank[indexInBank].Split(',');
 
         magicNumber = GameObject.Find("Canvas/Panel/MagicNumber");
 
@@ -42,9 +49,12 @@ public class GameManager : MonoBehaviour
         answerFour = GameObject.Find("Canvas/Panel/Answer4");
         answerFive = GameObject.Find("Canvas/Panel/Answer5");
 
+        scoreDisplay = GameObject.Find("Canvas/Panel/Score");
+        score = 0;
+
         answer = "";
 
-        initializeCards(testResults[0].ToString(), testResults[1].ToString(), testResults[2].ToString(), testResults[3].ToString());
+        initializeCards(question[0], question[1], question[2], question[3]);
     }
 
     // Update is called once per frame
@@ -72,9 +82,19 @@ public class GameManager : MonoBehaviour
             }
         }
 
+
         if (evaluate(answer, int.Parse(magicNumber.GetComponentInChildren<Text>().text)))
         {
-            initializeCards(testResults[0].ToString(), testResults[1].ToString(), testResults[2].ToString(), testResults[3].ToString());
+            score++;
+            scoreDisplay.GetComponentInChildren<Text>().text = "Score: " + score;
+
+            if (indexInBank < testBank.Length - 1)
+            {
+                indexInBank++;
+            }
+
+            question = testBank[indexInBank].Split(',');
+            initializeCards(question[0], question[1], question[2], question[3]);
         }
     }
 
@@ -107,9 +127,24 @@ public class GameManager : MonoBehaviour
             return false;
         } else
         {
+            String expAnswer = "";
+            for (int i = 0; i < expression.Length; i++)
+            {
+                if (i == 0)
+                {
+                    expAnswer += "(";
+                }
+
+                if (i == 3)
+                {
+                    expAnswer += ")";
+                }
+
+                expAnswer += expression[i];
+            }
             try
             {
-                return ((int)EvaluateString.Evaluate(expression)) == answer;
+                return ((int)EvaluateString.Evaluate(expAnswer)) == answer;
             } catch (Exception e)
             {
                 return false;
@@ -151,6 +186,20 @@ public class GameManager : MonoBehaviour
 
     public void onReset()
     {
-        initializeCards(testResults[0].ToString(), testResults[1].ToString(), testResults[2].ToString(), testResults[3].ToString());
+        initializeCards(question[0], question[1], question[2], question[3]);
+    }
+
+    public void onSkip()
+    {
+        score--;
+        scoreDisplay.GetComponentInChildren<Text>().text = "Score: " + score;
+
+        if (indexInBank < testBank.Length - 1)
+        {
+            indexInBank++;
+        }
+
+        question = testBank[indexInBank].Split(',');
+        initializeCards(question[0], question[1], question[2], question[3]);
     }
 }

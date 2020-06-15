@@ -65,6 +65,7 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\Drag.cs" />
     <Compile Include="Assets\Scripts\Drop.cs" />
+    <Compile Include="Assets\Scripts\EndScene.cs" />
     <Compile Include="Assets\Scripts\EvaluateString.cs" />
     <Compile Include="Assets\Scripts\GameManager.cs" />
     <Compile Include="Assets\Scripts\MainMenu.cs" />

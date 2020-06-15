@@ -56,19 +56,20 @@ public class GameManager : MonoBehaviour
         indexInBank = 0;
         question = testBank[indexInBank].Split(',');
 
-        magicNumber = GameObject.Find("Canvas/Panel/MagicNumber");
+        magicNumber = GameObject.Find("MediumMode/Panel/MagicNumber");
 
-        numberOne = GameObject.Find("Canvas/Panel/Number1");
-        numberTwo = GameObject.Find("Canvas/Panel/Number2");
-        numberThree = GameObject.Find("Canvas/Panel/Number3");
+        numberOne = GameObject.Find("MediumMode/Panel/Number1");
+        numberTwo = GameObject.Find("MediumMode/Panel/Number2");
+        numberThree = GameObject.Find("MediumMode/Panel/Number3");
 
-        answerOne = GameObject.Find("Canvas/Panel/Answer1");
-        answerTwo = GameObject.Find("Canvas/Panel/Answer2");
-        answerThree = GameObject.Find("Canvas/Panel/Answer3");
-        answerFour = GameObject.Find("Canvas/Panel/Answer4");
-        answerFive = GameObject.Find("Canvas/Panel/Answer5");
+        answerOne = GameObject.Find("MediumMode/Panel/Answer1");
+        answerTwo = GameObject.Find("MediumMode/Panel/Answer2");
+        answerThree = GameObject.Find("MediumMode/Panel/Answer3");
+        answerFour = GameObject.Find("MediumMode/Panel/Answer4");
+        answerFive = GameObject.Find("MediumMode/Panel/Answer5");
 
-        scoreDisplay = GameObject.Find("Canvas/Panel/Score");
+        scoreDisplay = GameObject.Find("MediumMode/Panel/Score");
+        score = PlayerPrefs.GetInt("CurrentScore");
         score = 0;
         highScore.text = PlayerPrefs.GetInt("HighScore", 0).ToString();
 
@@ -108,6 +109,7 @@ public class GameManager : MonoBehaviour
         if (evaluate(answer, int.Parse(magicNumber.GetComponentInChildren<Text>().text)))
         {
             score++;
+            PlayerPrefs.SetInt("CurrentScore", score);
             scoreDisplay.GetComponentInChildren<Text>().text = "Score: \n" + score;
 
             if (indexInBank < testBank.Length - 1)
@@ -224,6 +226,7 @@ public class GameManager : MonoBehaviour
     public void onSkip()
     {
         score--;
+        PlayerPrefs.SetInt("CurrentScore", score);
         scoreDisplay.GetComponentInChildren<Text>().text = "Score: \n" + score;
 
         if (indexInBank < testBank.Length - 1)

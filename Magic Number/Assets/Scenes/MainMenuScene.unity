@@ -494,7 +494,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Multiplayer
+  m_Text: Versus
 --- !u!222 &521585920
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -821,7 +821,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Single Player
+  m_Text: Solo
 --- !u!222 &1149815643
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1071,7 +1071,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1953108894
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1167,3 +1167,4 @@ MonoBehaviour:
   SinglePlayerScene: DifficultyScene
   MultiPlayerScene: 
   HowToPlayScene: HowToPlay
+  EasyModeScene: 

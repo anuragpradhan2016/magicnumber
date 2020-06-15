@@ -6,6 +6,7 @@ using System.Globalization;
 using System.Text;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -23,12 +24,30 @@ public class GameManager : MonoBehaviour
 
     public GameObject scoreDisplay;
     public int score;
+    public Text highScore;
+    public int countdownTime;
+    public Text countdownDisplay;
+    public string endScene;
 
     public string[] testBank;
     public string[] question;
     public int indexInBank;
 
     public String answer;
+
+    IEnumerator CountdownToEnd()
+    {
+        while(countdownTime > 0)
+        {
+            countdownDisplay.text = countdownTime.ToString();
+
+            yield return new WaitForSeconds(1f);
+
+            countdownTime--;
+        }
+
+        endGame();
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -51,10 +70,13 @@ public class GameManager : MonoBehaviour
 
         scoreDisplay = GameObject.Find("Canvas/Panel/Score");
         score = 0;
+        highScore.text = PlayerPrefs.GetInt("HighScore", 0).ToString();
 
         answer = "";
 
         initializeCards(question[0], question[1], question[2], question[3]);
+
+        StartCoroutine(CountdownToEnd());
     }
 
     // Update is called once per frame
@@ -86,7 +108,7 @@ public class GameManager : MonoBehaviour
         if (evaluate(answer, int.Parse(magicNumber.GetComponentInChildren<Text>().text)))
         {
             score++;
-            scoreDisplay.GetComponentInChildren<Text>().text = "Score: " + score;
+            scoreDisplay.GetComponentInChildren<Text>().text = "Score: \n" + score;
 
             if (indexInBank < testBank.Length - 1)
             {
@@ -96,8 +118,18 @@ public class GameManager : MonoBehaviour
             question = testBank[indexInBank].Split(',');
             initializeCards(question[0], question[1], question[2], question[3]);
         }
+
+        if (score > PlayerPrefs.GetInt("HighScore", 0))
+        {
+            PlayerPrefs.SetInt("HighScore", score);
+            highScore.text = score.ToString();
+        }
     }
 
+    public void endGame()
+    {
+        SceneManager.LoadScene(endScene);
+    }
     public void initializeCards(String magicNum, String numOne, String numTwo, String numThree)
     { 
         numberOne.GetComponent<CanvasGroup>().alpha = 1f;
@@ -192,7 +224,7 @@ public class GameManager : MonoBehaviour
     public void onSkip()
     {
         score--;
-        scoreDisplay.GetComponentInChildren<Text>().text = "Score: " + score;
+        scoreDisplay.GetComponentInChildren<Text>().text = "Score: \n" + score;
 
         if (indexInBank < testBank.Length - 1)
         {

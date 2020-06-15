@@ -73,6 +73,11 @@ public class GameManager : MonoBehaviour
         score = 0;
         PlayerPrefs.SetInt("CurrentScore", 0);
         highScore.text = PlayerPrefs.GetInt("HighScore", 0).ToString();
+        if (PlayerPrefs.GetInt("HighScore") == 0)
+        {
+            highScore.text = 0.ToString();
+            PlayerPrefs.SetInt("Highscore", 0);
+        }
 
         answer = "";
 

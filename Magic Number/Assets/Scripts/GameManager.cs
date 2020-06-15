@@ -71,6 +71,7 @@ public class GameManager : MonoBehaviour
         scoreDisplay = GameObject.Find("MediumMode/Panel/Score");
         score = PlayerPrefs.GetInt("CurrentScore");
         score = 0;
+        PlayerPrefs.SetInt("CurrentScore", 0);
         highScore.text = PlayerPrefs.GetInt("HighScore", 0).ToString();
 
         answer = "";

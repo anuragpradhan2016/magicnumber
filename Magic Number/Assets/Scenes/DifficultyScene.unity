@@ -414,7 +414,7 @@ GameObject:
   - component: {fileID: 953654145}
   - component: {fileID: 953654144}
   m_Layer: 5
-  m_Name: Button
+  m_Name: BackButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -623,7 +623,7 @@ GameObject:
   - component: {fileID: 1157628880}
   - component: {fileID: 1157628879}
   m_Layer: 5
-  m_Name: SingeplayerButton
+  m_Name: EasyButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -693,7 +693,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 2070599432}
-        m_MethodName: easyModeScene
+        m_MethodName: EasyModeScene
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1363,7 +1363,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43543d71cc357a04fbc1721088272edf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SinglePlayerScene: 
-  MultiPlayerScene: 
-  HowToPlayScene: 
-  EasyModeScene: EasyModeScene
+  singlePlayerScene: 
+  multiPlayerScene: 
+  howToPlayScene: 
+  easyModeScene: EasyModeScene

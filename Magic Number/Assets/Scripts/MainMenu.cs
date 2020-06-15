@@ -5,10 +5,10 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
-    public string SinglePlayerScene;
-    public string MultiPlayerScene;
-    public string HowToPlayScene;
-    public string EasyModeScene;
+    public string singlePlayerScene;
+    public string multiPlayerScene;
+    public string howToPlayScene;
+    public string easyModeScene;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,19 +20,19 @@ public class MainMenu : MonoBehaviour
     {
         
     }
-    public void singlePlayerScene()
+    public void SinglePlayerScene()
     {
-        SceneManager.LoadScene(SinglePlayerScene);
+        SceneManager.LoadScene(singlePlayerScene);
     }
     
-    public void howToPlayScene()
+    public void HowToPlayScene()
     {
-        SceneManager.LoadScene(HowToPlayScene);
+        SceneManager.LoadScene(howToPlayScene);
     }
 
 
-    public void easyModeScene()
+    public void EasyModeScene()
     {
-        SceneManager.LoadScene(EasyModeScene);
+        SceneManager.LoadScene(easyModeScene);
     }
 }

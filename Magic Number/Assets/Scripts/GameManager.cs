@@ -21,12 +21,19 @@ public class GameManager : MonoBehaviour
     public GameObject answerThree;
     public GameObject answerFour;
     public GameObject answerFive;
+    public GameObject answerBackground;
 
     public GameObject scoreDisplay;
+
+    public GameObject noParentheses;
+    public GameObject leftParentheses;
+    public GameObject rightParentheses;
+
     public int score;
     public Text highScore;
     public int countdownTime;
     public Text countdownDisplay;
+
     public string endScene;
 
     public string[] testBank;
@@ -34,6 +41,10 @@ public class GameManager : MonoBehaviour
     public int indexInBank;
 
     public String answer;
+    public int parenthesesOption; // 0 -> Left, 1 -> None, 2 -> Right
+
+    public Color selected;
+    public Color notSelected;
 
     IEnumerator CountdownToEnd()
     {
@@ -62,17 +73,25 @@ public class GameManager : MonoBehaviour
         numberTwo = GameObject.Find("MediumMode/Panel/Number2");
         numberThree = GameObject.Find("MediumMode/Panel/Number3");
 
-        answerOne = GameObject.Find("MediumMode/Panel/Answer1");
-        answerTwo = GameObject.Find("MediumMode/Panel/Answer2");
-        answerThree = GameObject.Find("MediumMode/Panel/Answer3");
-        answerFour = GameObject.Find("MediumMode/Panel/Answer4");
-        answerFive = GameObject.Find("MediumMode/Panel/Answer5");
+        answerOne = GameObject.Find("MediumMode/Panel/AnswerBackground/Answer1");
+        answerTwo = GameObject.Find("MediumMode/Panel/AnswerBackground/Answer2");
+        answerThree = GameObject.Find("MediumMode/Panel/AnswerBackground/Answer3");
+        answerFour = GameObject.Find("MediumMode/Panel/AnswerBackground/Answer4");
+        answerFive = GameObject.Find("MediumMode/Panel/AnswerBackground/Answer5");
+        answerBackground = GameObject.Find("MediumMode/Panel/AnswerBackground");
+        answerBackground.transform.SetAsFirstSibling();
 
         scoreDisplay = GameObject.Find("MediumMode/Panel/Score");
         score = PlayerPrefs.GetInt("CurrentScore");
         score = 0;
+
         PlayerPrefs.SetInt("CurrentScore", 0);
         highScore.text = PlayerPrefs.GetInt("HighScore", 0).ToString();
+
+        parenthesesOption = 1;
+        selected = noParentheses.GetComponent<Image>().color;
+        notSelected = leftParentheses.GetComponent<Image>().color;
+
         if (PlayerPrefs.GetInt("HighScore") == 0)
         {
             highScore.text = 0.ToString();
@@ -83,7 +102,7 @@ public class GameManager : MonoBehaviour
 
         initializeCards(question[0], question[1], question[2], question[3]);
 
-        StartCoroutine(CountdownToEnd());
+       // StartCoroutine(CountdownToEnd());
     }
 
     // Update is called once per frame
@@ -170,17 +189,27 @@ public class GameManager : MonoBehaviour
             String expAnswer = "";
             for (int i = 0; i < expression.Length; i++)
             {
-                if (i == 0)
+                if (parenthesesOption == 0 && i == 0)
                 {
                     expAnswer += "(";
                 }
 
-                if (i == 3)
+                if (parenthesesOption == 0 && i == 3)
+                {
+                    expAnswer += ")";
+                } 
+                
+                if (parenthesesOption == 2 && i == 2)
+                {
+                    expAnswer += "(";
+                } 
+
+                expAnswer += expression[i];
+
+                if (parenthesesOption == 2 && i == 4)
                 {
                     expAnswer += ")";
                 }
-
-                expAnswer += expression[i];
             }
             try
             {
@@ -224,23 +253,28 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void onReset()
+    public void noParenthesesAction()
     {
-        initializeCards(question[0], question[1], question[2], question[3]);
+        parenthesesOption = 1;
+        noParentheses.GetComponent<Image>().color = selected;
+        leftParentheses.GetComponent<Image>().color = notSelected;
+        rightParentheses.GetComponent<Image>().color = notSelected;
     }
 
-    public void onSkip()
+    public void leftParenthesesAction()
     {
-        score--;
-        PlayerPrefs.SetInt("CurrentScore", score);
-        scoreDisplay.GetComponentInChildren<Text>().text = "Score: \n" + score;
-
-        if (indexInBank < testBank.Length - 1)
-        {
-            indexInBank++;
-        }
-
-        question = testBank[indexInBank].Split(',');
-        initializeCards(question[0], question[1], question[2], question[3]);
+        parenthesesOption = 0;
+        noParentheses.GetComponent<Image>().color = notSelected;
+        leftParentheses.GetComponent<Image>().color = selected;
+        rightParentheses.GetComponent<Image>().color = notSelected;
     }
+
+    public void rightParenthesesAction()
+    {
+        parenthesesOption = 2;
+        noParentheses.GetComponent<Image>().color = notSelected;
+        leftParentheses.GetComponent<Image>().color = notSelected;
+        rightParentheses.GetComponent<Image>().color = selected;
+    }
+
 }

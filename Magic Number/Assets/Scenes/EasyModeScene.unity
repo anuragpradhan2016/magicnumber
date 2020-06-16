@@ -5423,7 +5423,6 @@ GameObject:
   - component: {fileID: 1887461681}
   - component: {fileID: 1887461680}
   - component: {fileID: 1887461679}
-  - component: {fileID: 1887461682}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -5497,37 +5496,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1887461682
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1887461678}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1df3b550d398c8b408b18bd70834c84f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  magicNumber: {fileID: 0}
-  numberOne: {fileID: 0}
-  numberTwo: {fileID: 0}
-  numberThree: {fileID: 0}
-  answerOne: {fileID: 0}
-  answerTwo: {fileID: 0}
-  answerThree: {fileID: 0}
-  answerFour: {fileID: 0}
-  answerFive: {fileID: 0}
-  scoreDisplay: {fileID: 0}
-  score: 0
-  highScore: {fileID: 2125299963}
-  countdownTime: 0
-  countdownDisplay: {fileID: 0}
-  endScene: 
-  testBank: []
-  question: []
-  indexInBank: 0
-  answer: 
 --- !u!1 &1908684562
 GameObject:
   m_ObjectHideFlags: 0

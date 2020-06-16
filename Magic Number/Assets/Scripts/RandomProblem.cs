@@ -6,9 +6,11 @@ using UnityEngine;
 
 public class RandomProblem : MonoBehaviour
 {
+    public static string randomProblem = "";
     // For operators, 0 => +, 1 => -, 2 => *, 3 => /
 
-   public static string generateProblem(int lowerBound, int higherBound, bool forceDivision)
+    public static IEnumerator generateProblem(int lowerBound, int higherBound, bool forceDivision)
+
      {
         int divisionOperators = -1; // which operators should be division: -1 => none, 0,1 => 1st operator is division, 2,3 => 2nd operator is division, 4 => both operators are division
 
@@ -32,12 +34,13 @@ public class RandomProblem : MonoBehaviour
             // if the first number is 2 and the first operator is -, then just retart (TODO)
             if (firstNumber == 2)
             {
-                return "";
+                RandomProblem.generateProblem(lowerBound, higherBound, forceDivision);
             }
             // just easier and cleaner to stick to positive numbers (prime, division, etc)
             while (targetNumber - secondNumber <= 0)
             {
                 secondNumber = UnityEngine.Random.Range(lowerBound, higherBound);
+                yield return null;
             }
 
             targetNumber -= secondNumber;
@@ -50,6 +53,7 @@ public class RandomProblem : MonoBehaviour
             if (RandomProblem.isPrime(targetNumber))
             {
                 secondNumber = UnityEngine.Random.Range(0, 2) == 0 ? 1 : targetNumber;
+                targetNumber /= secondNumber;
             }
             else
             {
@@ -60,6 +64,7 @@ public class RandomProblem : MonoBehaviour
                 {
                     secondNumber = UnityEngine.Random.Range(lowerBound, higherBound);
                     count++;
+                    yield return null;
                 }
 
                 if (count < 100)
@@ -73,6 +78,7 @@ public class RandomProblem : MonoBehaviour
                     while (targetNumber % secondNumber != 0)
                     {
                         secondNumber--;
+                        yield return null;
                     }
 
                     targetNumber /= secondNumber;
@@ -93,12 +99,13 @@ public class RandomProblem : MonoBehaviour
             // if the target number is 2 and the second operator is -, then just retart (TODO)
             if (targetNumber == 2)
             {
-              return "";
+                RandomProblem.generateProblem(lowerBound, higherBound, forceDivision);
             }
 
             while (targetNumber - thirdNumber <= 0)
             {
                 thirdNumber = UnityEngine.Random.Range(lowerBound, higherBound);
+                yield return null;
             }
 
             targetNumber -= thirdNumber;
@@ -113,6 +120,7 @@ public class RandomProblem : MonoBehaviour
             if (RandomProblem.isPrime(targetNumber))
             {
                 thirdNumber = UnityEngine.Random.Range(0, 2) == 0 ? 1 : targetNumber;
+                targetNumber /= thirdNumber;
             }
             else
             {
@@ -123,11 +131,12 @@ public class RandomProblem : MonoBehaviour
                 {
                     thirdNumber = UnityEngine.Random.Range(lowerBound, higherBound);
                     count++;
+                    yield return null;
                 }
 
                 if (count < 100)
                 {
-                    targetNumber /= secondNumber;
+                    targetNumber /= thirdNumber;
                 }
                 else
                 {
@@ -136,6 +145,7 @@ public class RandomProblem : MonoBehaviour
                     while (targetNumber % thirdNumber != 0)
                     {
                         thirdNumber--;
+                        yield return null;
                     }
 
                     targetNumber /= thirdNumber;
@@ -144,8 +154,8 @@ public class RandomProblem : MonoBehaviour
         }
 
 
-
-        return "" + targetNumber + "," + firstNumber + "," + secondNumber + "," + thirdNumber;
+        UnityEngine.Debug.Log("Answer: " + targetNumber + "," + firstNumber + "," + secondNumber + "," + thirdNumber + " Operators: " + firstOperator + "," + secondOperator);
+        RandomProblem.randomProblem =  "" + targetNumber + "," + firstNumber + "," + secondNumber + "," + thirdNumber;
     }
 
     private static bool isPrime(int x)

@@ -69,6 +69,8 @@
     <Compile Include="Assets\Scripts\EvaluateString.cs" />
     <Compile Include="Assets\Scripts\GameManager.cs" />
     <Compile Include="Assets\Scripts\MainMenu.cs" />
+    <Compile Include="Assets\Scripts\RandomProblem.cs" />
+    <Compile Include="Assets\Scripts\RandomizerReverse.cs" />
     <Compile Include="Assets\Scripts\ReturnToMenu.cs" />
     <Compile Include="Assets\autogridlayoutfiles\AutoGridLayout.cs" />
     <Reference Include="UnityEngine">

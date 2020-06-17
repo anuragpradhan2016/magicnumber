@@ -198,9 +198,15 @@ public class RandomizerReverse : MonoBehaviour
                 yield return null;
 
             }
-            if (operatorOne != 3 && operatorTwo !=3)
+            if ((operatorOne != 4 && operatorTwo !=4))
             {
                 turnsTillDivide--;
+                PlayerPrefs.SetInt("Divide", turnsTillDivide);
+            }
+            if (operatorOne == 4 || operatorTwo == 4)
+            {
+                turnsTillDivide = UnityEngine.Random.Range(2, 6);
+                PlayerPrefs.SetInt("Divide", turnsTillDivide);
             }
             numOne.text = numberOne.ToString();
             numTwo.text = numberTwo.ToString();

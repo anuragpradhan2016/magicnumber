@@ -51,6 +51,7 @@ public class Drag : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHand
     {
          canvas.blocksRaycasts = true;
          this.transform.position = this.originalPosition;
+        this.transform.SetAsFirstSibling();
 
         if (!active) return;
 

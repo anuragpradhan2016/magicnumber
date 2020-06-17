@@ -79,7 +79,6 @@ public class GameManager : MonoBehaviour
         answerFour = GameObject.Find("MediumMode/Panel/AnswerBackground/Answer4");
         answerFive = GameObject.Find("MediumMode/Panel/AnswerBackground/Answer5");
         answerBackground = GameObject.Find("MediumMode/Panel/AnswerBackground");
-        answerBackground.transform.SetAsFirstSibling();
 
         scoreDisplay = GameObject.Find("MediumMode/Panel/Score");
         score = PlayerPrefs.GetInt("CurrentScore");
@@ -91,6 +90,24 @@ public class GameManager : MonoBehaviour
         parenthesesOption = 1;
         selected = noParentheses.GetComponent<Image>().color;
         notSelected = leftParentheses.GetComponent<Image>().color;
+
+        answerBackground.transform.SetAsFirstSibling();
+        magicNumber.transform.SetAsFirstSibling();
+        noParentheses.transform.SetAsFirstSibling();
+        leftParentheses.transform.SetAsFirstSibling();
+        rightParentheses.transform.SetAsFirstSibling();
+        GameObject.Find("MediumMode/Panel/Parenthesis").transform.SetAsFirstSibling();
+        scoreDisplay.transform.SetAsFirstSibling();
+        highScore.transform.SetAsFirstSibling();
+        countdownDisplay.transform.SetAsFirstSibling();
+        numberOne.transform.SetAsFirstSibling();
+        numberTwo.transform.SetAsFirstSibling();
+        numberThree.transform.SetAsFirstSibling();
+        GameObject.Find("MediumMode/Panel/Plus").transform.SetAsFirstSibling();
+        GameObject.Find("MediumMode/Panel/Minus").transform.SetAsFirstSibling();
+        GameObject.Find("MediumMode/Panel/Multiply").transform.SetAsFirstSibling();
+        GameObject.Find("MediumMode/Panel/Divide").transform.SetAsFirstSibling();
+ 
 
         if (PlayerPrefs.GetInt("HighScore") == 0)
         {

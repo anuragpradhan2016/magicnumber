@@ -35,6 +35,11 @@ public class RandomizerReverse : MonoBehaviour
     IEnumerator GenerateNum()
     {
         turnsTillDivide = PlayerPrefs.GetInt("Divide");
+        if (turnsTillDivide < 0)
+        {
+            turnsTillDivide = UnityEngine.Random.Range(2, 6);
+            PlayerPrefs.SetInt("Divide", turnsTillDivide);
+        }
         if(turnsTillDivide != 0)
         {
             completed = 0;
@@ -42,7 +47,7 @@ public class RandomizerReverse : MonoBehaviour
             {
                 targetNumber = UnityEngine.Random.Range(10, 101);
                 testNumber = UnityEngine.Random.Range(2, 10);
-                testOperator = UnityEngine.Random.Range(1, 5);
+                testOperator = UnityEngine.Random.Range(1, 6);
                 numberOne = 10;
                 numberTwo = 10;
                 numberThree = 10;
@@ -66,8 +71,9 @@ public class RandomizerReverse : MonoBehaviour
                             failCount++;
                         }
                     }
-                    else if (testOperator == 2)
+                    else if (testOperator == 2 || testOperator == 5)
                     {
+                        testOperator = 2;
                         targetBuilder = targetNumber + testNumber;
                         if (targetBuilder < 82 && targetBuilder2 > 1)
                         {
@@ -121,7 +127,7 @@ public class RandomizerReverse : MonoBehaviour
                     yield return null;
                 }
                     testNumber = UnityEngine.Random.Range(1, 10);
-                    testOperator = UnityEngine.Random.Range(1, 5);
+                    testOperator = UnityEngine.Random.Range(1, 6);
                     failCount = 0;
                     targetBuilder2 = 10;
                 while (numberTwo == 10 && failCount < 4 && numberOne < 10)
@@ -142,8 +148,9 @@ public class RandomizerReverse : MonoBehaviour
                             failCount++;
                         }
                     }
-                    else if (testOperator == 2)
+                    else if (testOperator == 2 || testOperator == 5)
                     {
+                        testOperator = 2;
                         targetBuilder2 = targetBuilder + testNumber;
                         if (targetBuilder2 < 10 && targetBuilder2 > 1)
                         {

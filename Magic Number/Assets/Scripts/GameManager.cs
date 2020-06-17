@@ -29,6 +29,7 @@ public class GameManager : MonoBehaviour
     public GameObject leftParentheses;
     public GameObject rightParentheses;
 
+    public int divisionCounter;
     public int score;
     public Text highScore;
     public int countdownTime;
@@ -63,9 +64,24 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        testBank = new string[] {"30,4,8,2", "48,3,2,8", "42,7,9,3", "12,4,2,6", "81,4,5,9", "39,4,9,3", "96,4,8,8", "10,2,3,2", "36,6,9,3", "77,7,4,7"};
-        indexInBank = 0;
-        question = testBank[indexInBank].Split(',');
+        if (!PlayerPrefs.HasKey("ForceDiv"))
+        {
+            PlayerPrefs.SetInt("ForceDiv", 0);
+        }
+        if (PlayerPrefs.GetInt("ForceDiv") == 0)
+        {
+            StartCoroutine(RandomProblem.generateProblem(2, 10, PlayerPrefs.GetInt("ForceDiv") == 0));
+            divisionCounter = UnityEngine.Random.Range(2, 6);
+            PlayerPrefs.SetInt("ForceDiv", divisionCounter);
+        }
+        else
+        {
+            StartCoroutine(RandomProblem.generateProblem(2, 10, false));
+            divisionCounter = PlayerPrefs.GetInt("ForceDiv");
+        }
+        divisionCounter--;
+        PlayerPrefs.SetInt("ForceDiv", divisionCounter);
+        question = RandomProblem.randomProblem.Split(',');
 
         magicNumber = GameObject.Find("MediumMode/Panel/MagicNumber");
 
@@ -154,12 +170,20 @@ public class GameManager : MonoBehaviour
             PlayerPrefs.SetInt("CurrentScore", score);
             scoreDisplay.GetComponentInChildren<Text>().text = "Score: \n" + score;
 
-            if (indexInBank < testBank.Length - 1)
+            if (PlayerPrefs.GetInt("ForceDiv") == 0)
             {
-                indexInBank++;
+                StartCoroutine(RandomProblem.generateProblem(2, 10, PlayerPrefs.GetInt("ForceDiv") == 0));
+                divisionCounter = UnityEngine.Random.Range(2, 6);
+                PlayerPrefs.SetInt("ForceDiv", divisionCounter);
             }
-
-            question = testBank[indexInBank].Split(',');
+            else
+            {
+                StartCoroutine(RandomProblem.generateProblem(2, 10, false));
+                divisionCounter = PlayerPrefs.GetInt("ForceDiv");
+            }
+            divisionCounter--;
+            PlayerPrefs.SetInt("ForceDiv", divisionCounter);
+            question = RandomProblem.randomProblem.Split(',');
             initializeCards(question[0], question[1], question[2], question[3]);
         }
 

@@ -1377,4 +1377,4 @@ MonoBehaviour:
   singlePlayerScene: 
   multiPlayerScene: 
   howToPlayScene: 
-  easyModeScene: EasyModeScene
+  easyModeScene: CountInScene

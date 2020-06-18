@@ -24,6 +24,7 @@ public class RandomizerReverse : MonoBehaviour
     public float buildTest;
 
     public int completed;
+    public int divDec;
 
     public Text numOne;
     public Text numTwo;
@@ -126,7 +127,7 @@ public class RandomizerReverse : MonoBehaviour
                     }
                     yield return null;
                 }
-                    testNumber = UnityEngine.Random.Range(1, 10);
+                    testNumber = UnityEngine.Random.Range(2, 10);
                     testOperator = UnityEngine.Random.Range(1, 6);
                     failCount = 0;
                     targetBuilder2 = 10;
@@ -261,14 +262,264 @@ public class RandomizerReverse : MonoBehaviour
         }
         else
         {
-            ForceDivide();
+            StartCoroutine(ForceDivide());
         }
     }
 
-    public void ForceDivide()
+    IEnumerator ForceDivide()
     {
+        completed = 0;
+        while (completed == 0)
+        {
+            divDec = UnityEngine.Random.Range(1, 3);
+            if (divDec == 1)
+            {
+                targetNumber = UnityEngine.Random.Range(1, 101);
+                testNumber = UnityEngine.Random.Range(2, 10);
+                numberOne = 10;
+                numberTwo = 10;
+                numberThree = 10;
+                failCount = 0;
+                operatorOne = 4;
+
+                while (numberOne == 10 && failCount < 4)
+                {
+                    targetBuilder = targetNumber * testNumber;
+                    if (targetBuilder > 1 && testNumber > 1)
+                    {
+                        numberOne = testNumber;
+                    }
+                    else
+                    {
+                        failCount++;
+                    }                      
+                    yield return null;
+                }
+
+                testNumber = UnityEngine.Random.Range(2, 10);
+                testOperator = UnityEngine.Random.Range(1, 6);
+                failCount = 0;
+                while (numberTwo == 10 && failCount < 4 && numberOne < 10)
+                {
+                    if (testOperator == 1)
+                    {
+                        targetBuilder2 = targetBuilder - testNumber;
+                        if (targetBuilder2 < 10 && targetBuilder2 > 1)
+                        {
+                            numberTwo = testNumber;
+                            numberThree = targetBuilder2;
+                            operatorTwo = 1;
+                            completed = 1;
+                        }
+                        else
+                        {
+                            testOperator++;
+                            failCount++;
+                        }
+                    }
+                    else if (testOperator == 2 || testOperator == 5)
+                    {
+                        testOperator = 2;
+                        targetBuilder2 = targetBuilder + testNumber;
+                        if (targetBuilder2 < 10 && targetBuilder2 > 1)
+                        {
+                            numberTwo = testNumber;
+                            numberThree = targetBuilder2;
+                            operatorTwo = 2;
+                            completed = 1;
+                        }
+                        else
+                        {
+                            testOperator++;
+                            failCount++;
+                        }
+                    }
+                    else if (testOperator == 3)
+                    {
+                        targetBuilder2 = targetBuilder / testNumber;
+                        targetTest = targetBuilder;
+                        numberTest = testNumber;
+                        buildTest = targetTest / numberTest;
+                        if (targetBuilder2 < 10 && buildTest == targetBuilder2 && targetBuilder2 > 1)
+                        {
+                            numberTwo = testNumber;
+                            numberThree = targetBuilder2;
+                            operatorTwo = 3;
+                            completed = 1;
+                        }
+                        else
+                        {
+                            testOperator++;
+                            failCount++;
+                        }
+                    }
+                    else
+                    {
+                        targetBuilder2 = targetBuilder * testNumber;
+                        if (targetBuilder2 < 10 && targetBuilder2 > 1)
+                        {
+                            numberTwo = testNumber;
+                            numberThree = targetBuilder2;
+                            operatorTwo = 4;
+                            completed = 1;
+                        }
+                        else
+                        {
+                            testOperator = 1;
+                            failCount++;
+                        }
+                    }
+                    yield return null;
+                }
+            }
+            else
+            {
+                targetNumber = UnityEngine.Random.Range(10, 101);
+                testNumber = UnityEngine.Random.Range(2, 10);
+                testOperator = UnityEngine.Random.Range(1, 6);
+                numberOne = 10;
+                numberTwo = 10;
+                numberThree = 10;
+                failCount = 0;
+                operatorTwo = 4;
+
+                while (numberOne == 10 && failCount <= 4)
+                {
+                    if (testOperator == 1)
+                    {
+                        targetBuilder = targetNumber - testNumber;
+                        if (targetBuilder < 82 && targetBuilder2 > 1)
+                        {
+                            numberOne = testNumber;
+                            operatorOne = 1;
+                        }
+                        else
+                        {
+                            testOperator++;
+                            failCount++;
+                        }
+                    }
+                    else if (testOperator == 2 || testOperator == 5)
+                    {
+                        testOperator = 2;
+                        targetBuilder = targetNumber + testNumber;
+                        if (targetBuilder < 82 && targetBuilder2 > 1)
+                        {
+                            numberOne = testNumber;
+                            operatorOne = 2;
+                        }
+                        else
+                        {
+                            testOperator++;
+                            failCount++;
+                        }
+                    }
+                    else if (testOperator == 3)
+                    {
+                        targetTest = targetNumber;
+                        numberTest = testNumber;
+                        buildTest = targetTest / numberTest;
+                        targetBuilder = targetNumber / testNumber;
+                        if (buildTest != targetBuilder)
+                        {
+                            targetBuilder = 10;
+                            numberOne = 10;
+                            testOperator++;
+                            failCount++;
+                        }
+                        else if (targetBuilder < 82 && buildTest == targetBuilder && targetBuilder2 > 1)
+                        {
+                            numberOne = testNumber;
+                            operatorOne = 3;
+                        }
+                        else
+                        {
+                            testOperator++;
+                            failCount++;
+                        }
+                    }
+                    else
+                    {
+                        targetBuilder = targetNumber * testNumber;
+                        if (targetBuilder < 82 && targetBuilder2 > 1)
+                        {
+                            numberOne = testNumber;                           
+                        }
+                        else
+                        {
+                            testOperator = 1;
+                            failCount++;
+                        }
+                    }
+                    yield return null;
+                }
+                testNumber = UnityEngine.Random.Range(2, 10);
+                failCount = 0;
+                targetBuilder2 = 10;
+                while (numberTwo == 10 && failCount < 4)
+                {
+                    targetBuilder2 = targetBuilder * testNumber;
+                    if (targetBuilder2 > 1 && testNumber > 1 && targetBuilder2 < 10 && testNumber < 10)
+                    {
+                        numberTwo = testNumber;
+                        numberThree = targetBuilder2;
+                        operatorTwo = 4;
+                        completed = 1;
+                    }
+                    else
+                    {
+                        failCount++;
+                    }
+                    yield return null;
+                }
+            }
+            yield return null;
+        }
+        numOne.text = numberOne.ToString();
+        numTwo.text = numberTwo.ToString();
+        numThree.text = numberThree.ToString();
+        if (operatorOne == 1)
+        {
+            opOne.text = "+";
+        }
+        else if (operatorOne == 2)
+        {
+            opOne.text = "-";
+        }
+        else if (operatorOne == 3)
+        {
+            opOne.text = "x";
+        }
+        else
+        {
+            opOne.text = "/";
+        }
+        if (operatorTwo == 1)
+        {
+            opTwo.text = "+";
+        }
+        else if (operatorTwo == 2)
+        {
+            opTwo.text = "-";
+        }
+        else if (operatorTwo == 3)
+        {
+            opTwo.text = "x";
+        }
+        else
+        {
+            opTwo.text = "/";
+        }
+        NumTarg.text = targetNumber.ToString();
+        PlayerPrefs.SetInt("NumberOne", numberOne);
+        PlayerPrefs.SetInt("NumberTwo", numberTwo);
+        PlayerPrefs.SetInt("NumberThree", numberThree);
+        PlayerPrefs.SetInt("OperatorOne", operatorOne);
+        PlayerPrefs.SetInt("OperatorTwo", operatorTwo);
+        PlayerPrefs.SetInt("TargetNumber", targetNumber);
         turnsTillDivide = UnityEngine.Random.Range(2, 6);
         PlayerPrefs.SetInt("Divide", turnsTillDivide);
+        yield return new WaitForSeconds(1f);
     }
 
     public void GenButton()

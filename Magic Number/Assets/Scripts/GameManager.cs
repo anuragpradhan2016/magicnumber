@@ -167,6 +167,7 @@ public class GameManager : MonoBehaviour
         if (evaluate(answer, int.Parse(magicNumber.GetComponentInChildren<Text>().text)))
         {
             score++;
+            countdownTime += 5;
             PlayerPrefs.SetInt("CurrentScore", score);
             scoreDisplay.GetComponentInChildren<Text>().text = "Score: \n" + score;
             Coroutine generateProblem;

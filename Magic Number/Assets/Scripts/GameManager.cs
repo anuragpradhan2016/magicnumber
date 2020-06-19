@@ -135,7 +135,7 @@ public class GameManager : MonoBehaviour
 
         initializeCards(question[0], question[1], question[2], question[3]);
 
-       // StartCoroutine(CountdownToEnd());
+        StartCoroutine(CountdownToEnd());
     }
 
     // Update is called once per frame
@@ -166,6 +166,7 @@ public class GameManager : MonoBehaviour
 
         if (evaluate(answer, int.Parse(magicNumber.GetComponentInChildren<Text>().text)))
         {
+            countdownTime += 5;
             score++;
             PlayerPrefs.SetInt("CurrentScore", score);
             scoreDisplay.GetComponentInChildren<Text>().text = "Score: \n" + score;

@@ -12,8 +12,8 @@ public class Drag : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHand
     public enum CardType {Number, Operator, Answer};
     public CardType cardType;
     public Vector2 originalPosition;
-    public Boolean active;
-    public Boolean droppedToLocation;
+    public bool active;
+    public bool droppedToLocation;
     public GameManager game;
 
     private CanvasGroup canvas;
@@ -67,16 +67,16 @@ public class Drag : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHand
                     {
                         string num = this.transform.gameObject.GetComponentInChildren<Text>().text;
 
-                        if (game.numberOne.GetComponentInChildren<Text>().text == num)
+                        if (game.numberOne.GetComponentInChildren<Text>().text == num && !game.numberOne.GetComponent<Drag>().active)
                         {
                             game.numberOne.GetComponent<Drag>().active = true;
                             game.numberOne.GetComponent<Drag>().GetComponent<CanvasGroup>().alpha = 1f;
 
-                        } else if (game.numberTwo.GetComponentInChildren<Text>().text == num)
+                        } else if (game.numberTwo.GetComponentInChildren<Text>().text == num && !game.numberTwo.GetComponent<Drag>().active)
                         {
                             game.numberTwo.GetComponent<Drag>().active = true;
                             game.numberTwo.GetComponent<Drag>().GetComponent<CanvasGroup>().alpha = 1f;
-                        } else if (game.numberThree.GetComponentInChildren<Text>().text == num)
+                        } else if (game.numberThree.GetComponentInChildren<Text>().text == num && !game.numberThree.GetComponent<Drag>().active)
                         {
                             game.numberThree.GetComponent<Drag>().active = true;
                             game.numberThree.GetComponent<Drag>().GetComponent<CanvasGroup>().alpha = 1f;

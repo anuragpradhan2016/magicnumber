@@ -47,6 +47,8 @@ public class GameManager : MonoBehaviour
     public Color selected;
     public Color notSelected;
 
+    public bool generatingProblem;
+
     IEnumerator CountdownToEnd()
     {
         while(countdownTime > 0)
@@ -68,20 +70,24 @@ public class GameManager : MonoBehaviour
         {
             PlayerPrefs.SetInt("ForceDiv", 0);
         }
+
+        Coroutine generateProblem;
+
         if (PlayerPrefs.GetInt("ForceDiv") == 0)
         {
-            StartCoroutine(RandomProblem.generateProblem(2, 10, PlayerPrefs.GetInt("ForceDiv") == 0));
+            generateProblem = StartCoroutine(RandomProblem.generateProblem(2, 10, true));
+            generatingProblem = true;
             divisionCounter = UnityEngine.Random.Range(2, 6);
-            PlayerPrefs.SetInt("ForceDiv", divisionCounter);
         }
         else
         {
-            StartCoroutine(RandomProblem.generateProblem(2, 10, false));
+            generateProblem = StartCoroutine(RandomProblem.generateProblem(2, 10, false));
+            generatingProblem = true;
             divisionCounter = PlayerPrefs.GetInt("ForceDiv");
         }
+
         divisionCounter--;
         PlayerPrefs.SetInt("ForceDiv", divisionCounter);
-        question = RandomProblem.randomProblem.Split(',');
 
         magicNumber = GameObject.Find("MediumMode/Panel/MagicNumber");
 
@@ -113,9 +119,6 @@ public class GameManager : MonoBehaviour
         leftParentheses.transform.SetAsFirstSibling();
         rightParentheses.transform.SetAsFirstSibling();
         GameObject.Find("MediumMode/Panel/Parenthesis").transform.SetAsFirstSibling();
-        scoreDisplay.transform.SetAsFirstSibling();
-        highScore.transform.SetAsFirstSibling();
-        countdownDisplay.transform.SetAsFirstSibling();
         numberOne.transform.SetAsFirstSibling();
         numberTwo.transform.SetAsFirstSibling();
         numberThree.transform.SetAsFirstSibling();
@@ -123,7 +126,6 @@ public class GameManager : MonoBehaviour
         GameObject.Find("MediumMode/Panel/Minus").transform.SetAsFirstSibling();
         GameObject.Find("MediumMode/Panel/Multiply").transform.SetAsFirstSibling();
         GameObject.Find("MediumMode/Panel/Divide").transform.SetAsFirstSibling();
- 
 
         if (PlayerPrefs.GetInt("HighScore") == 0)
         {
@@ -131,16 +133,14 @@ public class GameManager : MonoBehaviour
             PlayerPrefs.SetInt("Highscore", 0);
         }
 
-        answer = "";
-
-        initializeCards(question[0], question[1], question[2], question[3]);
-
-        StartCoroutine(CountdownToEnd());
+        StartCoroutine(initializeCards(generateProblem));
+        // StartCoroutine(CountdownToEnd());
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (generatingProblem) return;
         if (magicNumber.GetComponentInChildren<Text>().text.Length == 0) return;
 
         String ans = answerOne.GetComponentInChildren<Text>().text  + answerTwo.GetComponentInChildren<Text>().text + 
@@ -166,26 +166,28 @@ public class GameManager : MonoBehaviour
 
         if (evaluate(answer, int.Parse(magicNumber.GetComponentInChildren<Text>().text)))
         {
-            countdownTime += 5;
             score++;
             PlayerPrefs.SetInt("CurrentScore", score);
             scoreDisplay.GetComponentInChildren<Text>().text = "Score: \n" + score;
+            Coroutine generateProblem;
 
             if (PlayerPrefs.GetInt("ForceDiv") == 0)
             {
-                StartCoroutine(RandomProblem.generateProblem(2, 10, PlayerPrefs.GetInt("ForceDiv") == 0));
+                generateProblem = StartCoroutine(RandomProblem.generateProblem(2, 10, true));
+                generatingProblem = true;
                 divisionCounter = UnityEngine.Random.Range(2, 6);
-                PlayerPrefs.SetInt("ForceDiv", divisionCounter);
             }
             else
             {
-                StartCoroutine(RandomProblem.generateProblem(2, 10, false));
+                generateProblem = StartCoroutine(RandomProblem.generateProblem(2, 10, false));
+                generatingProblem = true;
                 divisionCounter = PlayerPrefs.GetInt("ForceDiv");
             }
+
             divisionCounter--;
             PlayerPrefs.SetInt("ForceDiv", divisionCounter);
-            question = RandomProblem.randomProblem.Split(',');
-            initializeCards(question[0], question[1], question[2], question[3]);
+
+            StartCoroutine(initializeCards(generateProblem));
         }
 
         if (score > PlayerPrefs.GetInt("HighScore", 0))
@@ -199,8 +201,18 @@ public class GameManager : MonoBehaviour
     {
         SceneManager.LoadScene(endScene);
     }
-    public void initializeCards(String magicNum, String numOne, String numTwo, String numThree)
-    { 
+    public IEnumerator initializeCards (Coroutine generateProblem)
+    {
+        yield return generateProblem;
+
+        String magicNum, numOne, numTwo, numThree;
+        String[] question = RandomProblem.randomProblem.Split(',');
+
+        magicNum = question[0].ToString();
+        numOne = question[1].ToString();
+        numTwo = question[2].ToString();
+        numThree = question[3].ToString();
+
         numberOne.GetComponent<CanvasGroup>().alpha = 1f;
         numberOne.GetComponent<Drag>().active = true;
 
@@ -220,6 +232,7 @@ public class GameManager : MonoBehaviour
         answerThree.GetComponentInChildren<Text>().text = "";
         answerFour.GetComponentInChildren<Text>().text = "";
         answerFive.GetComponentInChildren<Text>().text = "";
+        generatingProblem = false;
     }
 
     private Boolean evaluate(String expression, int answer)

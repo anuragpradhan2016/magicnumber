@@ -49,11 +49,13 @@ public class Drop : MonoBehaviour, IDropHandler
                 this.transform.gameObject.GetComponentInChildren<Text>().fontStyle = d.transform.gameObject.GetComponentInChildren<Text>().fontStyle;
                 this.transform.gameObject.GetComponentInChildren<Text>().fontSize = d.transform.gameObject.GetComponentInChildren<Text>().fontSize;
                 this.transform.gameObject.GetComponentInChildren<Text>().alignment = d.transform.gameObject.GetComponentInChildren<Text>().alignment;
+                this.gameObject.GetComponent<CanvasGroup>().alpha = 1f;
 
                 d.transform.gameObject.GetComponentInChildren<Text>().text = text;
                 d.transform.gameObject.GetComponentInChildren<Text>().fontStyle = fontStyle;
                 d.transform.gameObject.GetComponentInChildren<Text>().fontSize = fontSize;
                 d.transform.gameObject.GetComponentInChildren<Text>().alignment = align;
+                d.gameObject.GetComponent<CanvasGroup>().alpha = 1f;
 
                 d.active = true;
                 d.droppedToLocation = true;

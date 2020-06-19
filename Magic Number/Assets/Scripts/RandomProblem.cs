@@ -31,16 +31,19 @@ public class RandomProblem : MonoBehaviour
         } else if (firstOperator == 1)
         {
 
-            // if the first number is 2 and the first operator is -, then just retart (TODO)
-            if (firstNumber == 2)
+            // if the target number is 2 and the first operator is -, then swap numbers
+            if (targetNumber == 2)
             {
-                RandomProblem.generateProblem(lowerBound, higherBound, forceDivision);
+                targetNumber = secondNumber;
+                secondNumber = 2;
             }
-            // just easier and cleaner to stick to positive numbers (prime, division, etc)
-            while (targetNumber - secondNumber <= 0)
+            else
             {
-                secondNumber = UnityEngine.Random.Range(lowerBound, higherBound);
-                yield return null;
+                while (targetNumber - secondNumber < 0)
+                {
+                    secondNumber = UnityEngine.Random.Range(lowerBound, higherBound);
+                    yield return null;
+                }
             }
 
             targetNumber -= secondNumber;
@@ -96,16 +99,18 @@ public class RandomProblem : MonoBehaviour
         }
         else if (secondOperator == 1)
         {
-            // if the target number is 2 and the second operator is -, then just retart (TODO)
+            // if the target number is 2 and the second operator is -, then swap numbers
             if (targetNumber == 2)
             {
-                RandomProblem.generateProblem(lowerBound, higherBound, forceDivision);
-            }
-
-            while (targetNumber - thirdNumber <= 0)
+                targetNumber = thirdNumber;
+                thirdNumber = 2;
+            } else
             {
-                thirdNumber = UnityEngine.Random.Range(lowerBound, higherBound);
-                yield return null;
+                while (targetNumber - thirdNumber < 0)
+                {
+                    thirdNumber = UnityEngine.Random.Range(lowerBound, higherBound);
+                    yield return null;
+                }
             }
 
             targetNumber -= thirdNumber;

@@ -212,7 +212,7 @@ GameObject:
   - component: {fileID: 458056138}
   - component: {fileID: 458056137}
   m_Layer: 5
-  m_Name: HowtoplayButton
+  m_Name: OptionsButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1030,7 +1030,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: How to Play
+  m_Text: Options
 --- !u!222 &1817600490
 CanvasRenderer:
   m_ObjectHideFlags: 0

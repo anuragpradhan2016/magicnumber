@@ -923,6 +923,7 @@ GameObject:
   - component: {fileID: 402045064}
   - component: {fileID: 402045063}
   - component: {fileID: 402045066}
+  - component: {fileID: 402045067}
   m_Layer: 0
   m_Name: MediumMode
   m_TagString: Untagged
@@ -1050,6 +1051,41 @@ MonoBehaviour:
   selected: {r: 0, g: 0, b: 0, a: 0}
   notSelected: {r: 0, g: 0, b: 0, a: 0}
   generatingProblem: 0
+--- !u!114 &402045067
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 402045061}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf6f0ead8751e304c91d6c5ec7e106cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetNumber: 0
+  targetBuilder: 0
+  targetBuilder2: 0
+  testOperator: 0
+  turnsTillDivide: 0
+  testNumber: 0
+  operatorOne: 0
+  operatorTwo: 0
+  RnumberOne: 0
+  RnumberTwo: 0
+  RnumberThree: 0
+  failCount: 0
+  targetTest: 0
+  numberTest: 0
+  buildTest: 0
+  completed: 0
+  divDec: 0
+  numOne: {fileID: 669960480}
+  numTwo: {fileID: 1255708684}
+  numThree: {fileID: 1646009003}
+  opOne: {fileID: 0}
+  opTwo: {fileID: 0}
+  NumTarg: {fileID: 17078980}
 --- !u!1 &418409501
 GameObject:
   m_ObjectHideFlags: 0
@@ -3849,7 +3885,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1255708682}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -0.0000014007172}
+  m_LocalPosition: {x: 0, y: 0, z: -0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 337943265}
@@ -5803,7 +5839,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 2.624, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0.15283}
+  m_AnchoredPosition: {x: 0, y: 0.15283203}
   m_SizeDelta: {x: 0, y: 0.30603027}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2144011111

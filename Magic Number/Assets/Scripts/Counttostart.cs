@@ -28,7 +28,8 @@ public class Counttostart : MonoBehaviour
     {
         countInTime = 3;
         StartCoroutine(countIn());
-        
+        RandomizerReverse rr = gameObject.GetComponent<RandomizerReverse>();
+        rr.GenButton();
     }
 
     // Update is called once per frame

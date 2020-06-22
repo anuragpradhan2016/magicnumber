@@ -798,7 +798,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b66efe1e6c46714182d854ac9cb336d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  retry: EasyModeScene
+  retry: CountInScene
   mainMenu: MainMenuScene
   endScore: {fileID: 1677139101}
   endHighScore: {fileID: 656045395}

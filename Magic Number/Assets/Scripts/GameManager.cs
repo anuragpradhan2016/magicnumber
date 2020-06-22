@@ -110,7 +110,7 @@ public class GameManager : MonoBehaviour
         }
 
         initializeCards();
-        // StartCoroutine(CountdownToEnd());
+        StartCoroutine(CountdownToEnd());
     }
 
     // Update is called once per frame
@@ -142,7 +142,7 @@ public class GameManager : MonoBehaviour
         if (evaluate(answer, int.Parse(magicNumber.GetComponentInChildren<Text>().text)))
         {
             score++;
-            countdownTime += 5;
+            countdownTime += 10;
             PlayerPrefs.SetInt("CurrentScore", score);
             scoreDisplay.GetComponentInChildren<Text>().text = "Score: \n" + score;
 

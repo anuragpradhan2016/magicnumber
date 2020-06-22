@@ -74,6 +74,7 @@
     <Compile Include="Assets\Scripts\RandomProblem.cs" />
     <Compile Include="Assets\Scripts\RandomizerReverse.cs" />
     <Compile Include="Assets\Scripts\ReturnToMenu.cs" />
+    <Compile Include="Assets\Scripts\optionsmenu.cs" />
     <Compile Include="Assets\autogridlayoutfiles\AutoGridLayout.cs" />
     <Reference Include="UnityEngine">
       <HintPath>F:/Program Files/Unity Hub/Editor/2019.3.15f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>

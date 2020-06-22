@@ -131,7 +131,7 @@ public class RandomizerReverse : MonoBehaviour
                     testOperator = UnityEngine.Random.Range(1, 6);
                     failCount = 0;
                     targetBuilder2 = 10;
-                while (RnumberTwo == 10 && failCount < 4 && RnumberOne < 10)
+                while (RnumberTwo == 10 && failCount < 4 && RnumberOne < 10 && PlayerPrefs.GetInt("Mode") != 1)
                 {
                     if (testOperator == 1)
                     {
@@ -274,7 +274,7 @@ public class RandomizerReverse : MonoBehaviour
             divDec = UnityEngine.Random.Range(1, 3);
             if (divDec == 1)
             {
-                targetNumber = UnityEngine.Random.Range(1, 101);
+                targetNumber = UnityEngine.Random.Range(2, 101);
                 testNumber = UnityEngine.Random.Range(2, 10);
                 RnumberOne = 10;
                 RnumberTwo = 10;
@@ -299,7 +299,7 @@ public class RandomizerReverse : MonoBehaviour
                 testNumber = UnityEngine.Random.Range(2, 10);
                 testOperator = UnityEngine.Random.Range(1, 6);
                 failCount = 0;
-                while (RnumberTwo == 10 && failCount < 4 && RnumberOne < 10)
+                while (RnumberTwo == 10 && failCount < 4 && RnumberOne < 10 && PlayerPrefs.GetInt("Mode") != 1)
                 {
                     if (testOperator == 1)
                     {
@@ -456,7 +456,7 @@ public class RandomizerReverse : MonoBehaviour
                 testNumber = UnityEngine.Random.Range(2, 10);
                 failCount = 0;
                 targetBuilder2 = 10;
-                while (RnumberTwo == 10 && failCount < 4)
+                while (RnumberTwo == 10 && failCount < 4 && PlayerPrefs.GetInt("Mode") != 1)
                 {
                     targetBuilder2 = targetBuilder * testNumber;
                     if (targetBuilder2 > 1 && testNumber > 1 && targetBuilder2 < 10 && testNumber < 10)

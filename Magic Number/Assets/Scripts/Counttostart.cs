@@ -9,7 +9,9 @@ public class Counttostart : MonoBehaviour
     public int countInTime;
     public Text countInDisplay;
 
-    public string sceneAfter;
+    public string sceneEasy;
+    public string sceneMed;
+    public string sceneHard;
 
     IEnumerator countIn()
     {
@@ -21,7 +23,18 @@ public class Counttostart : MonoBehaviour
         }
         countInDisplay.text = "Go!";
         yield return new WaitForSeconds(1f);
-        SceneManager.LoadScene(sceneAfter);
+        if (PlayerPrefs.GetInt("Mode") == 1)
+        {
+            SceneManager.LoadScene(sceneEasy);
+        }
+        else if (PlayerPrefs.GetInt("Mode") == 2)
+        {
+            SceneManager.LoadScene(sceneMed);
+        }
+        else
+        {
+            SceneManager.LoadScene(sceneHard);
+        }
     }
     // Start is called before the first frame update
     void Start()

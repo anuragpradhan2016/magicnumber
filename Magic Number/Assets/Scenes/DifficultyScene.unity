@@ -204,7 +204,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 2070599432}
-        m_MethodName: EasyModeScene
+        m_MethodName: mediumMode
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -494,8 +494,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2070599431}
-        m_MethodName: gotoMenu
+      - m_Target: {fileID: 2070599432}
+        m_MethodName: mainMenu
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -703,7 +703,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2070599432}
+      - m_Target: {fileID: 0}
         m_MethodName: 
         m_Mode: 1
         m_Arguments:
@@ -1260,7 +1260,6 @@ GameObject:
   - component: {fileID: 2070599429}
   - component: {fileID: 2070599428}
   - component: {fileID: 2070599427}
-  - component: {fileID: 2070599431}
   - component: {fileID: 2070599432}
   m_Layer: 5
   m_Name: Canvas
@@ -1349,19 +1348,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
---- !u!114 &2070599431
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2070599426}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 28697315681b7a641989e07f41673556, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  HomeScreen: MainMenuScene
 --- !u!114 &2070599432
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1371,10 +1357,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 2070599426}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 43543d71cc357a04fbc1721088272edf, type: 3}
+  m_Script: {fileID: 11500000, guid: 6487e579368784440badbeb8ab32cfc3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  singlePlayerScene: 
-  multiPlayerScene: 
-  howToPlayScene: 
-  easyModeScene: CountInScene
+  easy: 
+  medium: CountInScene
+  hard: 
+  main: MainMenuScene

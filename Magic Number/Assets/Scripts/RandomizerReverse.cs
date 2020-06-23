@@ -252,12 +252,19 @@ public class RandomizerReverse : MonoBehaviour
                 opTwo.text = "/";
             }
             numTarg.text = targetNumber.ToString();*/
+
+            /*
+             PlayerPrefs.SetInt("OperatorOne", operatorOne);
+             PlayerPrefs.SetInt("OperatorTwo", operatorTwo);
+            */
+
+
             PlayerPrefs.SetInt("NumberOne", RnumberOne);
             PlayerPrefs.SetInt("NumberTwo", RnumberTwo);
             PlayerPrefs.SetInt("NumberThree", RnumberThree);
-            PlayerPrefs.SetInt("OperatorOne", operatorOne);
-            PlayerPrefs.SetInt("OperatorTwo", operatorTwo);
             PlayerPrefs.SetInt("TargetNumber", targetNumber);
+
+
             yield return new WaitForSeconds(1f);
         }
         else
@@ -511,9 +518,46 @@ public class RandomizerReverse : MonoBehaviour
             opTwo.text = "/";
         }
         numTarg.text = targetNumber.ToString();*/
-        PlayerPrefs.SetInt("NumberOne", RnumberOne);
-        PlayerPrefs.SetInt("NumberTwo", RnumberTwo);
-        PlayerPrefs.SetInt("NumberThree", RnumberThree);
+
+        // there's 6 permutations of 3 numbers
+        int order = UnityEngine.Random.Range(0, 6);
+
+        if (order == 0)
+        {
+            PlayerPrefs.SetInt("NumberOne", RnumberOne);
+            PlayerPrefs.SetInt("NumberTwo", RnumberTwo);
+            PlayerPrefs.SetInt("NumberThree", RnumberThree);
+        }
+        else if (order == 1)
+        {
+            PlayerPrefs.SetInt("NumberOne", RnumberOne);
+            PlayerPrefs.SetInt("NumberTwo", RnumberThree);
+            PlayerPrefs.SetInt("NumberThree", RnumberTwo);
+        } else if (order == 2)
+        {
+            PlayerPrefs.SetInt("NumberOne", RnumberTwo);
+            PlayerPrefs.SetInt("NumberTwo", RnumberOne);
+            PlayerPrefs.SetInt("NumberThree", RnumberThree);
+        }
+        else if (order == 3)
+        {
+            PlayerPrefs.SetInt("NumberOne", RnumberTwo);
+            PlayerPrefs.SetInt("NumberTwo", RnumberThree);
+            PlayerPrefs.SetInt("NumberThree", RnumberOne);
+        }
+        else if (order == 4)
+        {
+            PlayerPrefs.SetInt("NumberOne", RnumberThree);
+            PlayerPrefs.SetInt("NumberTwo", RnumberTwo);
+            PlayerPrefs.SetInt("NumberThree", RnumberOne);
+        }
+        else 
+        {
+            PlayerPrefs.SetInt("NumberOne", RnumberThree);
+            PlayerPrefs.SetInt("NumberTwo", RnumberOne);
+            PlayerPrefs.SetInt("NumberThree", RnumberTwo);
+        }
+   
         PlayerPrefs.SetInt("OperatorOne", operatorOne);
         PlayerPrefs.SetInt("OperatorTwo", operatorTwo);
         PlayerPrefs.SetInt("TargetNumber", targetNumber);

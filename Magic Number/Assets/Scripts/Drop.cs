@@ -26,7 +26,7 @@ public class Drop : MonoBehaviour, IDropHandler
         {
             if (d.cardType == Drag.CardType.Number && (this.transform.gameObject.name == "Answer2" || this.transform.gameObject.name == "Answer4")) { d.gameObject.GetComponent<CanvasGroup>().alpha = 1f; }
             else if (d.cardType == Drag.CardType.Operator && (this.transform.gameObject.name == "Answer1" || this.transform.gameObject.name == "Answer3"
-                || this.transform.gameObject.name == "Answer5")) { }
+                || this.transform.gameObject.name == "Answer5")) {}
             else if (d.cardType == Drag.CardType.Answer && d.GetComponentInChildren<Text>().text == "") { }
             else if ((this.gameObject.name == "Answer1" && 
                 (d.gameObject.name == "Answer2" || d.gameObject.name == "Answer4")) || 
@@ -61,6 +61,8 @@ public class Drop : MonoBehaviour, IDropHandler
                 d.droppedToLocation = true;
             } else
             {
+                string num = this.transform.gameObject.GetComponentInChildren<Text>().text;
+
                 this.transform.gameObject.GetComponentInChildren<Text>().text = d.transform.gameObject.GetComponentInChildren<Text>().text;
                 this.transform.gameObject.GetComponentInChildren<Text>().fontStyle = d.transform.gameObject.GetComponentInChildren<Text>().fontStyle;
                 this.transform.gameObject.GetComponentInChildren<Text>().fontSize = d.transform.gameObject.GetComponentInChildren<Text>().fontSize;
@@ -72,6 +74,23 @@ public class Drop : MonoBehaviour, IDropHandler
                     d.gameObject.GetComponent<CanvasGroup>().alpha = 0.6f;
                     d.active = false;
                     d.droppedToLocation = true;
+
+                        if (game.numberOne.GetComponentInChildren<Text>().text == num && !game.numberOne.GetComponent<Drag>().active)
+                        {
+                            game.numberOne.GetComponent<Drag>().active = true;
+                            game.numberOne.GetComponent<Drag>().GetComponent<CanvasGroup>().alpha = 1f;
+
+                        }
+                        else if (game.numberTwo.GetComponentInChildren<Text>().text == num && !game.numberTwo.GetComponent<Drag>().active)
+                        {
+                            game.numberTwo.GetComponent<Drag>().active = true;
+                            game.numberTwo.GetComponent<Drag>().GetComponent<CanvasGroup>().alpha = 1f;
+                        }
+                        else if (game.numberThree.GetComponentInChildren<Text>().text == num && !game.numberThree.GetComponent<Drag>().active)
+                        {
+                            game.numberThree.GetComponent<Drag>().active = true;
+                            game.numberThree.GetComponent<Drag>().GetComponent<CanvasGroup>().alpha = 1f;
+                        }
                 }
                 else
                 {

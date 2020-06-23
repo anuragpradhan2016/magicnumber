@@ -1050,7 +1050,6 @@ MonoBehaviour:
   parenthesesOption: 0
   selected: {r: 0, g: 0, b: 0, a: 0}
   notSelected: {r: 0, g: 0, b: 0, a: 0}
-  generatingProblem: 0
 --- !u!114 &402045067
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1080,12 +1079,6 @@ MonoBehaviour:
   buildTest: 0
   completed: 0
   divDec: 0
-  numOne: {fileID: 669960480}
-  numTwo: {fileID: 1255708684}
-  numThree: {fileID: 1646009003}
-  opOne: {fileID: 0}
-  opTwo: {fileID: 0}
-  NumTarg: {fileID: 17078980}
 --- !u!1 &418409501
 GameObject:
   m_ObjectHideFlags: 0
@@ -1325,6 +1318,7 @@ GameObject:
   - component: {fileID: 497037250}
   - component: {fileID: 497037252}
   - component: {fileID: 497037253}
+  - component: {fileID: 497037254}
   m_Layer: 0
   m_Name: Multiply
   m_TagString: Untagged
@@ -1418,6 +1412,20 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
+--- !u!114 &497037254
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 497037248}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02c02f65994182f459f4273b3d1511a8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  game: {fileID: 0}
+  drag: {fileID: 0}
 --- !u!1 &500001086
 GameObject:
   m_ObjectHideFlags: 0
@@ -1656,6 +1664,7 @@ GameObject:
   - component: {fileID: 545373245}
   - component: {fileID: 545373247}
   - component: {fileID: 545373248}
+  - component: {fileID: 545373249}
   m_Layer: 0
   m_Name: Number2
   m_TagString: Untagged
@@ -1749,6 +1758,20 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
+--- !u!114 &545373249
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 545373243}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02c02f65994182f459f4273b3d1511a8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  game: {fileID: 0}
+  drag: {fileID: 0}
 --- !u!1 &551204280
 GameObject:
   m_ObjectHideFlags: 0
@@ -2347,6 +2370,7 @@ GameObject:
   - component: {fileID: 874527863}
   - component: {fileID: 874527865}
   - component: {fileID: 874527866}
+  - component: {fileID: 874527867}
   m_Layer: 0
   m_Name: Number3
   m_TagString: Untagged
@@ -2440,6 +2464,20 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
+--- !u!114 &874527867
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 874527861}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02c02f65994182f459f4273b3d1511a8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  game: {fileID: 0}
+  drag: {fileID: 0}
 --- !u!1 &882584126
 GameObject:
   m_ObjectHideFlags: 0
@@ -2531,6 +2569,7 @@ GameObject:
   - component: {fileID: 886879016}
   - component: {fileID: 886879019}
   - component: {fileID: 886879020}
+  - component: {fileID: 886879018}
   m_Layer: 0
   m_Name: Number1
   m_TagString: Untagged
@@ -2595,6 +2634,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 886879014}
   m_CullTransparentMesh: 0
+--- !u!114 &886879018
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 886879014}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02c02f65994182f459f4273b3d1511a8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  game: {fileID: 0}
+  drag: {fileID: 0}
 --- !u!114 &886879019
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3309,6 +3362,7 @@ GameObject:
   - component: {fileID: 1057501618}
   - component: {fileID: 1057501620}
   - component: {fileID: 1057501621}
+  - component: {fileID: 1057501622}
   m_Layer: 0
   m_Name: Divide
   m_TagString: Untagged
@@ -3402,6 +3456,20 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
+--- !u!114 &1057501622
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1057501616}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02c02f65994182f459f4273b3d1511a8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  game: {fileID: 0}
+  drag: {fileID: 0}
 --- !u!1 &1059691496
 GameObject:
   m_ObjectHideFlags: 0
@@ -5043,6 +5111,7 @@ GameObject:
   - component: {fileID: 1775951802}
   - component: {fileID: 1775951804}
   - component: {fileID: 1775951805}
+  - component: {fileID: 1775951806}
   m_Layer: 0
   m_Name: Minus
   m_TagString: Untagged
@@ -5136,6 +5205,20 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
+--- !u!114 &1775951806
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1775951800}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02c02f65994182f459f4273b3d1511a8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  game: {fileID: 0}
+  drag: {fileID: 0}
 --- !u!1 &1780030622
 GameObject:
   m_ObjectHideFlags: 0
@@ -5229,6 +5312,7 @@ GameObject:
   - component: {fileID: 1853736724}
   - component: {fileID: 1853736726}
   - component: {fileID: 1853736727}
+  - component: {fileID: 1853736728}
   m_Layer: 0
   m_Name: Plus
   m_TagString: Untagged
@@ -5322,6 +5406,20 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
+--- !u!114 &1853736728
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1853736722}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02c02f65994182f459f4273b3d1511a8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  game: {fileID: 0}
+  drag: {fileID: 0}
 --- !u!1 &1887461678
 GameObject:
   m_ObjectHideFlags: 0

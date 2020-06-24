@@ -7,7 +7,9 @@ using UnityEngine.UI;
 
 public class EndScene : MonoBehaviour
 {
-    public string retry;
+    public string retrym;
+    public string retrye;
+    public string retryh;
     public string mainMenu;
     public Text endScore;
     public Text endHighScore;
@@ -25,7 +27,18 @@ public class EndScene : MonoBehaviour
     }
     public void Retry()
     {
-        SceneManager.LoadScene(retry);
+        if (PlayerPrefs.GetInt("Mode") == 1)
+        {
+            SceneManager.LoadScene(retrye);
+        }
+        else if (PlayerPrefs.GetInt("Mode") == 2)
+        {
+            SceneManager.LoadScene(retrym);
+        }
+        else
+        {
+            SceneManager.LoadScene(retryh);
+        }
     }
     
     public void MainMenu()

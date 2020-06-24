@@ -540,9 +540,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countInTime: 3
   countInDisplay: {fileID: 1701362932}
-  sceneEasy: 
+  sceneEasy: RealEasyScene
   sceneMed: EasyModeScene
-  sceneHard: 
+  sceneHard: HardModeScene
 --- !u!114 &2060296994
 MonoBehaviour:
   m_ObjectHideFlags: 0

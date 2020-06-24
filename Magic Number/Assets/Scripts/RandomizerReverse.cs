@@ -557,6 +557,10 @@ public class RandomizerReverse : MonoBehaviour
             PlayerPrefs.SetInt("NumberTwo", RnumberOne);
             PlayerPrefs.SetInt("NumberThree", RnumberTwo);
         }
+        if (PlayerPrefs.GetInt("Mode") == 3)
+        {
+            PlayerPrefs.SetInt("ExtraNum", UnityEngine.Random.Range(2, 10));
+        }
    
         PlayerPrefs.SetInt("OperatorOne", operatorOne);
         PlayerPrefs.SetInt("OperatorTwo", operatorTwo);
@@ -600,6 +604,10 @@ public class RandomizerReverse : MonoBehaviour
         if (!PlayerPrefs.HasKey("TargetNumber"))
         {
             PlayerPrefs.SetInt("TargetNumber", 0);
+        }
+        if (!PlayerPrefs.HasKey("ExtraNum"))
+        {
+            PlayerPrefs.SetInt("ExtraNum", 0);
         }
         StartCoroutine(GenerateNum());
     }

@@ -25,10 +25,6 @@ public class GameManager : MonoBehaviour
 
     public GameObject scoreDisplay;
 
-    public GameObject noParentheses;
-    public GameObject leftParentheses;
-    public GameObject rightParentheses;
-
     public int divisionCounter;
     public int score;
     public Text highScore;
@@ -42,7 +38,6 @@ public class GameManager : MonoBehaviour
     public int indexInBank;
 
     public String answer;
-    public int parenthesesOption; // 0 -> Left, 1 -> None, 2 -> Right
 
     public Color selected;
     public Color notSelected;
@@ -85,16 +80,8 @@ public class GameManager : MonoBehaviour
         PlayerPrefs.SetInt("CurrentScore", 0);
         highScore.text = PlayerPrefs.GetInt("HighScore", 0).ToString();
 
-        parenthesesOption = 1;
-        selected = noParentheses.GetComponent<Image>().color;
-        notSelected = leftParentheses.GetComponent<Image>().color;
-
         answerBackground.transform.SetAsFirstSibling();
         magicNumber.transform.SetAsFirstSibling();
-        noParentheses.transform.SetAsFirstSibling();
-        leftParentheses.transform.SetAsFirstSibling();
-        rightParentheses.transform.SetAsFirstSibling();
-        GameObject.Find("MediumMode/Panel/Parenthesis").transform.SetAsFirstSibling();
         numberOne.transform.SetAsFirstSibling();
         numberTwo.transform.SetAsFirstSibling();
         numberThree.transform.SetAsFirstSibling();
@@ -201,24 +188,24 @@ public class GameManager : MonoBehaviour
             String expAnswer = "";
             for (int i = 0; i < expression.Length; i++)
             {
-                if (parenthesesOption == 0 && i == 0)
+                if (PlayerPrefs.GetInt("Solve") == 0 && i == 0)
                 {
                     expAnswer += "(";
                 }
 
-                if (parenthesesOption == 0 && i == 3)
+                if (PlayerPrefs.GetInt("Solve") == 0 && i == 3)
                 {
                     expAnswer += ")";
                 } 
                 
-                if (parenthesesOption == 2 && i == 2)
+                if (PlayerPrefs.GetInt("Solve") == 1 && i == 2)
                 {
                     expAnswer += "(";
                 } 
 
                 expAnswer += expression[i];
 
-                if (parenthesesOption == 2 && i == 4)
+                if (PlayerPrefs.GetInt("Solve") == 1 && i == 4)
                 {
                     expAnswer += ")";
                 }
@@ -264,29 +251,4 @@ public class GameManager : MonoBehaviour
             }
         }
     }
-
-    public void noParenthesesAction()
-    {
-        parenthesesOption = 1;
-        noParentheses.GetComponent<Image>().color = selected;
-        leftParentheses.GetComponent<Image>().color = notSelected;
-        rightParentheses.GetComponent<Image>().color = notSelected;
-    }
-
-    public void leftParenthesesAction()
-    {
-        parenthesesOption = 0;
-        noParentheses.GetComponent<Image>().color = notSelected;
-        leftParentheses.GetComponent<Image>().color = selected;
-        rightParentheses.GetComponent<Image>().color = notSelected;
-    }
-
-    public void rightParenthesesAction()
-    {
-        parenthesesOption = 2;
-        noParentheses.GetComponent<Image>().color = notSelected;
-        leftParentheses.GetComponent<Image>().color = notSelected;
-        rightParentheses.GetComponent<Image>().color = selected;
-    }
-
 }

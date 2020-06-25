@@ -470,8 +470,8 @@ GameObject:
   - component: {fileID: 295335883}
   - component: {fileID: 295335882}
   - component: {fileID: 295335881}
-  - component: {fileID: 295335879}
   - component: {fileID: 295335880}
+  - component: {fileID: 295335879}
   m_Layer: 0
   m_Name: EasyMode
   m_TagString: Untagged

@@ -49,4 +49,11 @@ public class optionsmenu : MonoBehaviour
     {
         SceneManager.LoadScene(tutorial);
     }
+
+    public void clearScores()
+    {
+        PlayerPrefs.SetInt("HighScore", 0);
+        PlayerPrefs.SetInt("HardHighscore", 0);
+        PlayerPrefs.SetInt("EasyHighScore", 0);
+    }
 }

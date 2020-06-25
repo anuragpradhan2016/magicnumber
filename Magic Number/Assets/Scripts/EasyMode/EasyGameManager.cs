@@ -71,6 +71,7 @@ public class EasyGameManager : MonoBehaviour
         score = 0;
 
         PlayerPrefs.SetInt("CurrentScore", 0);
+
         highScore.text = PlayerPrefs.GetInt("EasyHighScore", 0).ToString();
 
         answerBackground.transform.SetAsFirstSibling();
@@ -88,8 +89,8 @@ public class EasyGameManager : MonoBehaviour
             PlayerPrefs.SetInt("EasyHighscore", 0);
         }
 
-        initializeCards();
-        StartCoroutine(CountdownToEnd());
+            initializeCards();
+            StartCoroutine(CountdownToEnd());
     }
 
     // Update is called once per frame

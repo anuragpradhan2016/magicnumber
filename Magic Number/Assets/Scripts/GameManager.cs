@@ -78,6 +78,15 @@ public class GameManager : MonoBehaviour
         score = 0;
 
         PlayerPrefs.SetInt("CurrentScore", 0);
+        if (!PlayerPrefs.HasKey("HighScore"))
+        {
+            PlayerPrefs.SetInt("HighScore", 0);
+        }
+        if (!PlayerPrefs.HasKey("HardHighscore"))
+        {
+            PlayerPrefs.SetInt("HardHighscore", 0);
+        }
+
         if (PlayerPrefs.GetInt("Mode") == 2)
         {
             highScore.text = PlayerPrefs.GetInt("HighScore", 0).ToString();
@@ -97,15 +106,7 @@ public class GameManager : MonoBehaviour
         GameObject.Find("MediumMode/Panel/Multiply").transform.SetAsFirstSibling();
         GameObject.Find("MediumMode/Panel/Divide").transform.SetAsFirstSibling();
 
-        if (PlayerPrefs.GetInt("HighScore") == 0)
-        {
-            highScore.text = 0.ToString();
-            PlayerPrefs.SetInt("Highscore", 0);
-        }
-        if (!PlayerPrefs.HasKey("HardHighscore"))
-        {
-            PlayerPrefs.SetInt("HardHighscore", 0);
-        }
+
 
         initializeCards();
         StartCoroutine(CountdownToEnd());

@@ -67,6 +67,11 @@
     <Compile Include="Assets\Scripts\DifficultySelect.cs" />
     <Compile Include="Assets\Scripts\Drag.cs" />
     <Compile Include="Assets\Scripts\Drop.cs" />
+    <Compile Include="Assets\Scripts\EasyMode\EasyDrag.cs" />
+    <Compile Include="Assets\Scripts\EasyMode\EasyDrop.cs" />
+    <Compile Include="Assets\Scripts\EasyMode\EasyGameManager.cs" />
+    <Compile Include="Assets\Scripts\EasyMode\EasyOnClick.cs" />
+    <Compile Include="Assets\Scripts\EasyMode\EasyRandomizer.cs" />
     <Compile Include="Assets\Scripts\EndScene.cs" />
     <Compile Include="Assets\Scripts\EvaluateString.cs" />
     <Compile Include="Assets\Scripts\GameManager.cs" />

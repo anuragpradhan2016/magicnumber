@@ -348,8 +348,8 @@ GameObject:
   - component: {fileID: 153548797}
   - component: {fileID: 153548802}
   - component: {fileID: 153548801}
-  - component: {fileID: 153548800}
   - component: {fileID: 153548799}
+  - component: {fileID: 153548800}
   - component: {fileID: 153548798}
   m_Layer: 0
   m_Name: Number2
@@ -387,7 +387,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 153548796}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 02c02f65994182f459f4273b3d1511a8, type: 3}
+  m_Script: {fileID: 11500000, guid: aa439fabbd125e847aab26f81b6f1ac2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   game: {fileID: 0}
@@ -413,7 +413,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 153548796}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a399f101ab18335448d9d4998e224261, type: 3}
+  m_Script: {fileID: 11500000, guid: 870097ee0759f994d8df7aa5321987c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   cardType: 0
@@ -508,23 +508,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 295335877}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1df3b550d398c8b408b18bd70834c84f, type: 3}
+  m_Script: {fileID: 11500000, guid: 50cd232237159964688738e740a71481, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   magicNumber: {fileID: 0}
   numberOne: {fileID: 0}
   numberTwo: {fileID: 0}
-  numberThree: {fileID: 0}
   answerOne: {fileID: 0}
   answerTwo: {fileID: 0}
   answerThree: {fileID: 0}
-  answerFour: {fileID: 0}
-  answerFive: {fileID: 0}
   answerBackground: {fileID: 0}
   scoreDisplay: {fileID: 0}
-  noParentheses: {fileID: 0}
-  leftParentheses: {fileID: 0}
-  rightParentheses: {fileID: 0}
   divisionCounter: 0
   score: 0
   highScore: {fileID: 982935229}
@@ -535,7 +529,6 @@ MonoBehaviour:
   question: []
   indexInBank: 0
   answer: 
-  parenthesesOption: 0
   selected: {r: 0, g: 0, b: 0, a: 0}
   notSelected: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &295335880
@@ -547,26 +540,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 295335877}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cf6f0ead8751e304c91d6c5ec7e106cd, type: 3}
+  m_Script: {fileID: 11500000, guid: a0fdb2cc1f85d9d499514877ece8374f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   targetNumber: 0
-  targetBuilder: 0
-  targetBuilder2: 0
-  testOperator: 0
-  turnsTillDivide: 0
-  testNumber: 0
-  operatorOne: 0
-  operatorTwo: 0
-  RnumberOne: 0
-  RnumberTwo: 0
-  RnumberThree: 0
-  failCount: 0
-  targetTest: 0
-  numberTest: 0
-  buildTest: 0
-  completed: 0
-  divDec: 0
+  numOne: 0
+  numTwo: 0
+  op: 0
+  targTest: 0
+  testOne: 0
+  testTwo: 0
 --- !u!114 &295335881
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -950,8 +933,8 @@ GameObject:
   - component: {fileID: 450111685}
   - component: {fileID: 450111690}
   - component: {fileID: 450111689}
-  - component: {fileID: 450111688}
   - component: {fileID: 450111687}
+  - component: {fileID: 450111688}
   - component: {fileID: 450111686}
   m_Layer: 0
   m_Name: Plus
@@ -989,7 +972,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 450111684}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 02c02f65994182f459f4273b3d1511a8, type: 3}
+  m_Script: {fileID: 11500000, guid: aa439fabbd125e847aab26f81b6f1ac2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   game: {fileID: 0}
@@ -1015,7 +998,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 450111684}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a399f101ab18335448d9d4998e224261, type: 3}
+  m_Script: {fileID: 11500000, guid: 870097ee0759f994d8df7aa5321987c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   cardType: 1
@@ -1302,9 +1285,9 @@ GameObject:
   - component: {fileID: 556725720}
   - component: {fileID: 556725725}
   - component: {fileID: 556725724}
+  - component: {fileID: 556725721}
   - component: {fileID: 556725723}
   - component: {fileID: 556725722}
-  - component: {fileID: 556725721}
   m_Layer: 0
   m_Name: Answer2
   m_TagString: Untagged
@@ -1353,13 +1336,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 556725719}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a399f101ab18335448d9d4998e224261, type: 3}
+  m_Script: {fileID: 11500000, guid: 67195ee67cca21b43a149bd9b0dcb126, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   cardType: 2
-  originalPosition: {x: 0, y: 0}
-  active: 0
-  droppedToLocation: 0
   game: {fileID: 0}
 --- !u!114 &556725723
 MonoBehaviour:
@@ -1370,10 +1350,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 556725719}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3c096f09a969e3448ac8de07bc8b0c3a, type: 3}
+  m_Script: {fileID: 11500000, guid: 870097ee0759f994d8df7aa5321987c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   cardType: 2
+  originalPosition: {x: 0, y: 0}
+  active: 0
+  droppedToLocation: 0
   game: {fileID: 0}
 --- !u!114 &556725724
 MonoBehaviour:
@@ -2111,8 +2094,8 @@ GameObject:
   - component: {fileID: 858090480}
   - component: {fileID: 858090485}
   - component: {fileID: 858090484}
-  - component: {fileID: 858090483}
   - component: {fileID: 858090482}
+  - component: {fileID: 858090483}
   - component: {fileID: 858090481}
   m_Layer: 0
   m_Name: Minus
@@ -2150,7 +2133,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 858090479}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 02c02f65994182f459f4273b3d1511a8, type: 3}
+  m_Script: {fileID: 11500000, guid: aa439fabbd125e847aab26f81b6f1ac2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   game: {fileID: 0}
@@ -2176,7 +2159,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 858090479}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a399f101ab18335448d9d4998e224261, type: 3}
+  m_Script: {fileID: 11500000, guid: 870097ee0759f994d8df7aa5321987c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   cardType: 1
@@ -2539,8 +2522,8 @@ GameObject:
   - component: {fileID: 1184887444}
   - component: {fileID: 1184887449}
   - component: {fileID: 1184887448}
-  - component: {fileID: 1184887447}
   - component: {fileID: 1184887446}
+  - component: {fileID: 1184887447}
   - component: {fileID: 1184887445}
   m_Layer: 0
   m_Name: Divide
@@ -2578,7 +2561,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1184887443}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 02c02f65994182f459f4273b3d1511a8, type: 3}
+  m_Script: {fileID: 11500000, guid: aa439fabbd125e847aab26f81b6f1ac2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   game: {fileID: 0}
@@ -2604,7 +2587,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1184887443}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a399f101ab18335448d9d4998e224261, type: 3}
+  m_Script: {fileID: 11500000, guid: 870097ee0759f994d8df7aa5321987c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   cardType: 1
@@ -2735,8 +2718,8 @@ GameObject:
   - component: {fileID: 1214037225}
   - component: {fileID: 1214037230}
   - component: {fileID: 1214037229}
-  - component: {fileID: 1214037228}
   - component: {fileID: 1214037227}
+  - component: {fileID: 1214037228}
   - component: {fileID: 1214037226}
   m_Layer: 0
   m_Name: Multiply
@@ -2774,7 +2757,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1214037224}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 02c02f65994182f459f4273b3d1511a8, type: 3}
+  m_Script: {fileID: 11500000, guid: aa439fabbd125e847aab26f81b6f1ac2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   game: {fileID: 0}
@@ -2800,7 +2783,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1214037224}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a399f101ab18335448d9d4998e224261, type: 3}
+  m_Script: {fileID: 11500000, guid: 870097ee0759f994d8df7aa5321987c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   cardType: 1
@@ -3012,9 +2995,9 @@ GameObject:
   - component: {fileID: 1308746151}
   - component: {fileID: 1308746156}
   - component: {fileID: 1308746155}
+  - component: {fileID: 1308746152}
   - component: {fileID: 1308746154}
   - component: {fileID: 1308746153}
-  - component: {fileID: 1308746152}
   m_Layer: 0
   m_Name: Answer1
   m_TagString: Untagged
@@ -3063,13 +3046,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1308746150}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a399f101ab18335448d9d4998e224261, type: 3}
+  m_Script: {fileID: 11500000, guid: 67195ee67cca21b43a149bd9b0dcb126, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   cardType: 2
-  originalPosition: {x: 0, y: 0}
-  active: 0
-  droppedToLocation: 0
   game: {fileID: 0}
 --- !u!114 &1308746154
 MonoBehaviour:
@@ -3080,10 +3060,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1308746150}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3c096f09a969e3448ac8de07bc8b0c3a, type: 3}
+  m_Script: {fileID: 11500000, guid: 870097ee0759f994d8df7aa5321987c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   cardType: 2
+  originalPosition: {x: 0, y: 0}
+  active: 0
+  droppedToLocation: 0
   game: {fileID: 0}
 --- !u!114 &1308746155
 MonoBehaviour:
@@ -3287,9 +3270,9 @@ GameObject:
   - component: {fileID: 1593379260}
   - component: {fileID: 1593379265}
   - component: {fileID: 1593379264}
+  - component: {fileID: 1593379261}
   - component: {fileID: 1593379263}
   - component: {fileID: 1593379262}
-  - component: {fileID: 1593379261}
   m_Layer: 0
   m_Name: Answer3
   m_TagString: Untagged
@@ -3338,13 +3321,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1593379259}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a399f101ab18335448d9d4998e224261, type: 3}
+  m_Script: {fileID: 11500000, guid: 67195ee67cca21b43a149bd9b0dcb126, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   cardType: 2
-  originalPosition: {x: 0, y: 0}
-  active: 0
-  droppedToLocation: 0
   game: {fileID: 0}
 --- !u!114 &1593379263
 MonoBehaviour:
@@ -3355,10 +3335,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1593379259}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3c096f09a969e3448ac8de07bc8b0c3a, type: 3}
+  m_Script: {fileID: 11500000, guid: 870097ee0759f994d8df7aa5321987c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   cardType: 2
+  originalPosition: {x: 0, y: 0}
+  active: 0
+  droppedToLocation: 0
   game: {fileID: 0}
 --- !u!114 &1593379264
 MonoBehaviour:
@@ -3571,8 +3554,8 @@ GameObject:
   - component: {fileID: 1671489229}
   - component: {fileID: 1671489234}
   - component: {fileID: 1671489233}
-  - component: {fileID: 1671489232}
   - component: {fileID: 1671489231}
+  - component: {fileID: 1671489232}
   - component: {fileID: 1671489230}
   m_Layer: 0
   m_Name: Number1
@@ -3610,7 +3593,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1671489228}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 02c02f65994182f459f4273b3d1511a8, type: 3}
+  m_Script: {fileID: 11500000, guid: aa439fabbd125e847aab26f81b6f1ac2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   game: {fileID: 0}
@@ -3636,7 +3619,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1671489228}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a399f101ab18335448d9d4998e224261, type: 3}
+  m_Script: {fileID: 11500000, guid: 870097ee0759f994d8df7aa5321987c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   cardType: 0

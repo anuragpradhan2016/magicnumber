@@ -16,7 +16,18 @@ public class EndScene : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        endHighScore.text = PlayerPrefs.GetInt("HighScore", 0).ToString();
+        if (PlayerPrefs.GetInt("Mode") == 1)
+        {
+            endHighScore.text = PlayerPrefs.GetInt("EasyHighScore").ToString();
+        }
+        else if (PlayerPrefs.GetInt("Mode") == 2)
+        {
+            endHighScore.text = PlayerPrefs.GetInt("HighScore").ToString();
+        }
+        else
+        {
+            endHighScore.text = PlayerPrefs.GetInt("HardHighscore").ToString();
+        }
         endScore.text = PlayerPrefs.GetInt("CurrentScore", 0).ToString();
     }
 

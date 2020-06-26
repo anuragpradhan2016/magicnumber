@@ -259,11 +259,97 @@ public class RandomizerReverse : MonoBehaviour
             */
 
 
-            PlayerPrefs.SetInt("NumberOne", RnumberOne);
-            PlayerPrefs.SetInt("NumberTwo", RnumberTwo);
-            PlayerPrefs.SetInt("NumberThree", RnumberThree);
-            PlayerPrefs.SetInt("TargetNumber", targetNumber);
+            // there's 6 permutations of 3 numbers
+            int order = UnityEngine.Random.Range(0, 6);
 
+            if (PlayerPrefs.GetInt("Mode") == 2)
+            {
+                if (order == 0)
+                {
+                    PlayerPrefs.SetInt("NumberOne", RnumberOne);
+                    PlayerPrefs.SetInt("NumberTwo", RnumberTwo);
+                    PlayerPrefs.SetInt("NumberThree", RnumberThree);
+                }
+                else if (order == 1)
+                {
+                    PlayerPrefs.SetInt("NumberOne", RnumberOne);
+                    PlayerPrefs.SetInt("NumberTwo", RnumberThree);
+                    PlayerPrefs.SetInt("NumberThree", RnumberTwo);
+                }
+                else if (order == 2)
+                {
+                    PlayerPrefs.SetInt("NumberOne", RnumberTwo);
+                    PlayerPrefs.SetInt("NumberTwo", RnumberOne);
+                    PlayerPrefs.SetInt("NumberThree", RnumberThree);
+                }
+                else if (order == 3)
+                {
+                    PlayerPrefs.SetInt("NumberOne", RnumberTwo);
+                    PlayerPrefs.SetInt("NumberTwo", RnumberThree);
+                    PlayerPrefs.SetInt("NumberThree", RnumberOne);
+                }
+                else if (order == 4)
+                {
+                    PlayerPrefs.SetInt("NumberOne", RnumberThree);
+                    PlayerPrefs.SetInt("NumberTwo", RnumberTwo);
+                    PlayerPrefs.SetInt("NumberThree", RnumberOne);
+                }
+                else
+                {
+                    PlayerPrefs.SetInt("NumberOne", RnumberThree);
+                    PlayerPrefs.SetInt("NumberTwo", RnumberOne);
+                    PlayerPrefs.SetInt("NumberThree", RnumberTwo);
+                }
+            }
+            else if (PlayerPrefs.GetInt("Mode") == 3)
+            {
+                PlayerPrefs.SetInt("ExtraNum", UnityEngine.Random.Range(2, 10));
+                if (order == 0)
+                {
+                    PlayerPrefs.SetInt("NumberOne", RnumberOne);
+                    PlayerPrefs.SetInt("NumberTwo", RnumberTwo);
+                    PlayerPrefs.SetInt("NumberThree", RnumberThree);
+                }
+                else if (order == 1)
+                {
+                    PlayerPrefs.SetInt("NumberOne", RnumberOne);
+                    PlayerPrefs.SetInt("NumberTwo", PlayerPrefs.GetInt("ExtraNum"));
+                    PlayerPrefs.SetInt("NumberThree", RnumberTwo);
+                    PlayerPrefs.SetInt("ExtraNum", RnumberThree);
+                }
+                else if (order == 2)
+                {
+                    PlayerPrefs.SetInt("NumberOne", PlayerPrefs.GetInt("ExtraNum"));
+                    PlayerPrefs.SetInt("NumberTwo", RnumberOne);
+                    PlayerPrefs.SetInt("NumberThree", RnumberThree);
+                    PlayerPrefs.SetInt("ExtraNum", RnumberTwo);
+                }
+                else if (order == 3)
+                {
+                    PlayerPrefs.SetInt("NumberOne", RnumberTwo);
+                    PlayerPrefs.SetInt("NumberTwo", RnumberThree);
+                    PlayerPrefs.SetInt("NumberThree", PlayerPrefs.GetInt("ExtraNum"));
+                    PlayerPrefs.SetInt("ExtraNum", RnumberOne);
+                }
+                else if (order == 4)
+                {
+                    PlayerPrefs.SetInt("NumberOne", RnumberThree);
+                    PlayerPrefs.SetInt("NumberTwo", PlayerPrefs.GetInt("ExtraNum"));
+                    PlayerPrefs.SetInt("NumberThree", RnumberOne);
+                    PlayerPrefs.SetInt("ExtraNum", RnumberTwo);
+                }
+                else
+                {
+                    PlayerPrefs.SetInt("NumberOne", PlayerPrefs.GetInt("ExtraNum"));
+                    PlayerPrefs.SetInt("NumberTwo", RnumberOne);
+                    PlayerPrefs.SetInt("NumberThree", RnumberTwo);
+                    PlayerPrefs.SetInt("ExtraNum", RnumberThree);
+                }
+            }
+
+            PlayerPrefs.SetInt("OperatorOne", operatorOne);
+            PlayerPrefs.SetInt("OperatorTwo", operatorTwo);
+            PlayerPrefs.SetInt("TargetNumber", targetNumber);
 
             yield return new WaitForSeconds(1f);
         }
@@ -521,6 +607,8 @@ public class RandomizerReverse : MonoBehaviour
 
         // there's 6 permutations of 3 numbers
         int order = UnityEngine.Random.Range(0, 6);
+        UnityEngine.Debug.Log(order);
+
         if (PlayerPrefs.GetInt("Mode") == 2)
         {
             if (order == 0)
